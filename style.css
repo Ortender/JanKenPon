@@ -1,0 +1,105 @@
+ /* 
+ *setup of the base page parameters 
+*/
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 200px;
+    margin-bottom: 50px;
+    padding: 50px;
+}
+
+header {
+    margin: auto;
+    width: 50%;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+header img {
+    width: 100%;
+}
+
+footer {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+ /* 
+ *setup of the layout of all the content in a grid 
+*/
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 100px 300px 100px;
+    gap: 15px;
+}
+
+.choiceicons, .resulttext, .iconmiddle, .healthbar {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.choiceicons img, .character img {
+    object-fit: cover;
+}
+
+/*
+*setup of the overlay of the K.O text on the characters
+*/
+
+.character {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.KOplayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+*setup of dynamic reaction to user actions
+*/
+
+.button:hover {
+    opacity: 50%;
+}
+
+ /* 
+ *setup of hidden class to hide elements 
+*/
+
+.hide {
+    display: none;
+}
