@@ -18,6 +18,8 @@ let choiceicons = document.querySelectorAll(".choiceicon")
 let playerhealth = 0
 let PChealth = 0
 
+setupGame()
+
 /**
  * We setup a listner on the "New game" button
  * When the user click on "New game" we initiate the game
