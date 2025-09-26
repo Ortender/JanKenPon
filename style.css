@@ -50,6 +50,7 @@ footer {
  *setup of the layout of all the content in a grid 
 */
 .content {
+    width: 50%;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 100px 300px 100px;
@@ -77,7 +78,7 @@ footer {
     justify-content: center;
 }
 
-.KOplayer {
+.KOimage {
     position: absolute;
     top: 0;
     left: 0;
