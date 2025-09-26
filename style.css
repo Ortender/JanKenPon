@@ -57,7 +57,7 @@ footer {
     gap: 15px;
 }
 
-.choiceicons, .resulttext, .iconmiddle, .healthbar {
+.userchoicesection, .resulttext, .iconmiddle, .healthbar {
     width: 50%;
     margin: auto;
     display: flex;
