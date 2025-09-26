@@ -4,6 +4,18 @@
  * 
  *********************************************************************************/
 
+/**
+ * this function setup the event listner that will allow us to get the user choice when clicking on the actions.
+ */
+function setupgame() {
+    for (index=0; index < choiceicons.length; index++) {
+        choiceicons[index].addEventListener( "click", clickevent)
+    }
+}
+
+/**
+ * this function initiate the game.
+ */
 function launchgame() {
     playerhealth = 0
     PChealth = 0
@@ -14,48 +26,46 @@ function launchgame() {
     display_element(playerhealthbar[0])
     display_element(pchealthbar[0])
     display_element(choicesection)
-   /*for (i=0; i < choiceicons.length; i++) {
-        console.log(i)
-        display_element(choiceicons[i])
-    }*/
     // Now we wait for the player to make his play
-    // We monitor when the player chooses an option between rock, paper and scissor by clicking on the corresponding icon
-    for (index=0; index < choiceicons.length; index++) {
-        choiceicons[index].addEventListener( "click", (event) => {
-            // we retrieve the id of the icon that was clicked on as the user choice
-            let user_choice = event.target.id
-            // we change the character image to the corresponding choice
-            // we get the computer random choice
-            let computer_choice = get_computer_choice()
-            console.log(user_choice, computer_choice)
-            change_character_image("Alexx", user_choice)
-            change_character_image("computer", computer_choice)
-            //we now display the result of the this round, first we identify the winner
-            let round_result = identify_winner(user_choice, computer_choice)
-            //then we display the right result text image "draw", "you win", "you lose"
-            display_result_test(result_image, round_result)
-            display_element(result_image)
-            //then based on the result we impact the character health
-            switch (round_result) {
-                case "draw":
-                    break
-                case "win":
-                    PChealth++
-                    healthbar_management(pchealthbar, PChealth)
-                    if (PChealth > 3) {
-                        endgame("computer", playerhealth, PChealth)
-                    }
-                    break
-                case "lose":
-                    playerhealth++
-                    healthbar_management(playerhealthbar, playerhealth)
-                    if (playerhealth > 3) {
-                        endgame("player", playerhealth, PChealth)
-                    }
-                    break
+    // We monitor when the player chooses an option between rock, paper and scissor by clicking on the corresponding icon with the click event we setup earlier
+}
+
+/**
+ * this function handles what happen when the user make a choice by clicking on the button.
+ * @param {event} event : the event that initiated the code (click by the user)
+ */
+function clickevent(event) {
+    // we retrieve the id of the icon that was clicked on as the user choice
+    let user_choice = event.target.id
+    // we change the character image to the corresponding choice
+    // we get the computer random choice
+    let computer_choice = get_computer_choice()
+    console.log(user_choice, computer_choice)
+    change_character_image("Alexx", user_choice)
+    change_character_image("computer", computer_choice)
+    //we now display the result of the this round, first we identify the winner
+    let round_result = identify_winner(user_choice, computer_choice)
+    //then we display the right result text image "draw", "you win", "you lose"
+    display_result_test(result_image, round_result)
+    display_element(result_image)
+    //then based on the result we impact the character health
+    switch (round_result) {
+        case "draw":
+            break
+        case "win":
+            PChealth++
+            healthbar_management(pchealthbar, PChealth)
+            if (PChealth > 3) {
+                endgame("computer", playerhealth, PChealth)
             }
-        })
-        choiceicons[index].removeEventListener( "click", (event))
+            break
+        case "lose":
+            playerhealth++
+            healthbar_management(playerhealthbar, playerhealth)
+            if (playerhealth > 3) {
+                endgame("player", playerhealth, PChealth)
+            }
+            break
     }
 }
 
